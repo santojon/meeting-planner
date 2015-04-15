@@ -1,6 +1,6 @@
 {
   "dependencies":{
   	"express": "4.12.3",
-  	"cloudant": ""
+  	"cloudant": "1.0.0-beta3"
   }
 }
