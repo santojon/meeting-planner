@@ -1,35 +1,54 @@
-language: groovy, android
+language: java
 
 jdk:
 - oraclejdk8
 
-android:
-  components:
-    - build-tools-22.0.1
-    - extra-android-support
-    - extra-android-m2repository
-    - android-22
-  licenses:
-    - '.+'
-
 env:
-  - GRAILS_VERSION=2.4.3
+  global:
+    - ANDROID_SDK_VERSION="r22.6.2"
+    - GRAILS_VERSION=2.4.3
 
 before_install:
-- cd server/mplanner
-- rm -rf ~/.gvm
-- curl -s get.gvmtool.net > ~/install_gvm.sh
-- chmod 775 ~/install_gvm.sh
-- ~/install_gvm.sh
-- echo "gvm_auto_answer=true" > ~/.gvm/etc/config
-- source ~/.gvm/bin/gvm-init.sh
-- gvm install grails $GRAILS_VERSION || true
+    #ANDROID
+    - cd /MeetingPlanner
+    - sudo apt-get update -qq
+    - if [ `uname -m` = x86_64 ]; then sudo apt-get update; fi
+    - if [ `uname -m` = x86_64 ]; then sudo apt-get install -qq --force-yes libgd2-xpm ia32-libs ia32-libs-multiarch; fi
+    - wget http://services.gradle.org/distributions/gradle-1.11-bin.zip
+    - unzip -qq gradle-1.11-bin.zip
+    - export GRADLE_HOME=$PWD/gradle-1.11
+    - export PATH=$GRADLE_HOME/bin:$PATH
+    - gradle -v
+    - wget http://dl.google.com/android/android-sdk_${ANDROID_SDK_VERSION}-linux.tgz
+    - tar -zxf android-sdk_${ANDROID_SDK_VERSION}-linux.tgz
+    - export ANDROID_HOME=`pwd`/android-sdk-linux
+    - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+    - echo "sdk.dir=$ANDROID_HOME" > local.properties
+    - echo yes | android update sdk --filter platform-tools --no-ui --force > /dev/null
+    - echo yes | android update sdk --all --filter build-tools-19.0.3 --no-ui --force > /dev/null
+    - echo yes | android update sdk --filter android-19 --no-ui --force > /dev/null
+    - echo yes | android update sdk --filter extra-android-support --no-ui --force > /dev/null
+    - echo yes | android update sdk --filter extra-android-m2repository --no-ui --force > /dev/null
+    - echo yes | android update sdk --filter extra-google-m2repository --no-ui --force > /dev/null
+    #GRAILS
+    - cd ../server/mplanner
+    - rm -rf ~/.gvm
+    - curl -s get.gvmtool.net > ~/install_gvm.sh
+    - chmod 775 ~/install_gvm.sh
+    - ~/install_gvm.sh
+    - echo "gvm_auto_answer=true" > ~/.gvm/etc/config
+    - source ~/.gvm/bin/gvm-init.sh
+    - gvm install grails $GRAILS_VERSION || true
+
+install: cd /MeetingPlanner && gradle clean build
 
 branches:
   only:
     - master
 
+notifications:
+  email: true
+ 
 script:
-    - grails clean && grails test-app --non-interactive --stacktrace
-    - cd /MeetingPlanner
-    - ./gradlew clean assemble check
+    - cd /MeetingPlanner && gradle check
+    - cd ../server/mplanner && grails clean && grails test-app --non-interactive --stacktrace
