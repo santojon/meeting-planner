@@ -31,5 +31,5 @@ branches:
 
 script:
     - grails clean && grails test-app --non-interactive --stacktrace
-    - cd ../MeetingPlanner
+    - cd /MeetingPlanner
     - ./gradlew clean assemble check
