@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+  <testsuite errors="0" failures="0" hostname="CHILENO.local" id="0" name="EventSpec" package="com.mplanner" tests="1" time="2.241" timestamp="2015-06-17T16:10:42">
+      <properties />
+
+      <testcase classname="com.mplanner.EventSpec" name="test something" time="2.185" />
+
+      <system-out><![CDATA[--Output from test something--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from test something--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="CHILENO.local" id="1" name="MatchControllerSpec" package="com.mplanner" tests="1" time="1.35" timestamp="2015-06-17T16:10:45">
+      <properties />
+
+      <testcase classname="com.mplanner.MatchControllerSpec" name="test something" time="1.339" />
+
+      <system-out><![CDATA[--Output from test something--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from test something--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="CHILENO.local" id="2" name="MatchServiceSpec" package="com.mplanner" tests="1" time="0.091" timestamp="2015-06-17T16:10:46">
+      <properties />
+
+      <testcase classname="com.mplanner.MatchServiceSpec" name="test something" time="0.084" />
+
+      <system-out><![CDATA[--Output from test something--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from test something--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="CHILENO.local" id="3" name="UserSpec" package="com.mplanner" tests="1" time="0.092" timestamp="2015-06-17T16:10:46">
+      <properties />
+
+      <testcase classname="com.mplanner.UserSpec" name="test something" time="0.086" />
+
+      <system-out><![CDATA[--Output from test something--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from test something--
+]]></system-err>
+
+  </testsuite>
+</testsuites>

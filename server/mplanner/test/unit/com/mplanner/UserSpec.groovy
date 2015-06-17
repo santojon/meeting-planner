@@ -1,7 +1,7 @@
 package com.mplanner
 
-import grails.test.mixin.TestFor
-import spock.lang.Specification
+import grails.test.mixin.*
+import spock.lang.*
 
 /**
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
@@ -16,6 +16,10 @@ class UserSpec extends Specification {
     }
 
     void "test something"() {
-        assert  true
+        when: 'test'
+        boolean b = true
+
+        then: 'is tested'
+        assert b
     }
 }
