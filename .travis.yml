@@ -40,7 +40,7 @@ before_install:
     - source ~/.gvm/bin/gvm-init.sh
     - gvm install grails $GRAILS_VERSION || true
 
-install: cd /MeetingPlanner && gradle clean build
+install: cd MeetingPlanner && gradle clean build
 
 branches:
   only:
@@ -50,5 +50,5 @@ notifications:
   email: true
  
 script:
-    - cd /MeetingPlanner && gradle check
+    - cd MeetingPlanner && gradle check
     - cd ../server/mplanner && grails clean && grails test-app --non-interactive --stacktrace
