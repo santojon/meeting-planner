@@ -1,3 +1,2 @@
 # meeting-planner
-Meeting Planner
-Readme
+Meeting Planner is an application made for schedule meetings.
