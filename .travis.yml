@@ -1,7 +1,16 @@
-language: java
+language: groovy, android
 
 jdk:
 - oraclejdk8
+
+android:
+  components:
+    - build-tools-22.0.1
+    - extra-android-support
+    - extra-android-m2repository
+    - android-22
+  licenses:
+    - '.+'
 
 env:
   - GRAILS_VERSION=2.4.3
@@ -15,15 +24,11 @@ before_install:
 - echo "gvm_auto_answer=true" > ~/.gvm/etc/config
 - source ~/.gvm/bin/gvm-init.sh
 - gvm install grails $GRAILS_VERSION || true
-- sudo apt-get install -qq --force-yes libgd2-xpm ia32-libs ia32-libs-multiarch
 
 branches:
   only:
     - master
 
-script: grails clean && grails test-app --non-interactive --stacktrace
-
-after_script:
-    - cd ../MeetingPlanner
-    - ./gradlew clean build
-    
+script:
+    - grails clean && grails test-app --non-interactive --stacktrace
+    - ./gradlew clean assemble check
