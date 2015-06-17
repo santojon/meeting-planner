@@ -9,7 +9,7 @@ env:
 
 before_install:
     # Install Grails in GVM (Grails Virtual Machine)
-    - cd ../server/mplanner
+    - cd server/mplanner
     - rm -rf ~/.gvm
     - curl -s get.gvmtool.net > ~/install_gvm.sh
     - chmod 775 ~/install_gvm.sh
