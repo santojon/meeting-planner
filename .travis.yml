@@ -4,20 +4,27 @@ jdk:
 - oraclejdk8
 
 env:
-  - GRAILS_VERSION=2.4.3
+  global:
+    - GRAILS_VERSION=2.4.3
 
 before_install:
-- cd server/mplanner
-- rm -rf ~/.gvm
-- curl -s get.gvmtool.net > ~/install_gvm.sh
-- chmod 775 ~/install_gvm.sh
-- ~/install_gvm.sh
-- echo "gvm_auto_answer=true" > ~/.gvm/etc/config
-- source ~/.gvm/bin/gvm-init.sh
-- gvm install grails $GRAILS_VERSION || true
+    # Install Grails in GVM (Grails Virtual Machine)
+    - cd server/mplanner
+    - rm -rf ~/.gvm
+    - curl -s get.gvmtool.net > ~/install_gvm.sh
+    - chmod 775 ~/install_gvm.sh
+    - ~/install_gvm.sh
+    - echo "gvm_auto_answer=true" > ~/.gvm/etc/config
+    - source ~/.gvm/bin/gvm-init.sh
+    - gvm install grails $GRAILS_VERSION || true
 
 branches:
   only:
     - master
 
-script: grails clean && grails test-app --non-interactive --stacktrace
+notifications:
+  email: true
+ 
+script:
+  # Clean App, Test App and then Deploy App
+    - grails clean && grails test-app && grails prod run-war --stacktrace
