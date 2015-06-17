@@ -1,4 +1,4 @@
-language: groovy
+language: java
 
 jdk:
 - oraclejdk8
@@ -15,9 +15,15 @@ before_install:
 - echo "gvm_auto_answer=true" > ~/.gvm/etc/config
 - source ~/.gvm/bin/gvm-init.sh
 - gvm install grails $GRAILS_VERSION || true
+- sudo apt-get install -qq --force-yes libgd2-xpm ia32-libs ia32-libs-multiarch
 
 branches:
   only:
     - master
 
 script: grails clean && grails test-app --non-interactive --stacktrace
+
+after_script:
+    - cd ../MeetingPlanner
+    - ./gradlew clean build
+    
