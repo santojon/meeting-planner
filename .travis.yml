@@ -4,11 +4,7 @@ jdk:
 - oraclejdk6
 
 env:
-  - GRAILS_VERSION=2.2.4
-  - GRAILS_VERSION=2.2.3
-  - GRAILS_VERSION=2.2.2
-  - GRAILS_VERSION=2.2.1
-  - GRAILS_VERSION=2.2.0
+  - GRAILS_VERSION=2.4.3
 
 before_install:
 - rm -rf ~/.gvm
