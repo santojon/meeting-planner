@@ -43,5 +43,7 @@ notifications:
   email: true
  
 script:
-    - gradle check
+    - ./gradlew tasks
+    - ./gradlew assembleDebug --stackTrace
+    - ./gradlew assembleRelease --stackTrace
     - grails clean && grails test-app --non-interactive --stacktrace
