@@ -16,5 +16,6 @@ class UserSpec extends Specification {
     }
 
     void "test something"() {
+        assert  true
     }
 }

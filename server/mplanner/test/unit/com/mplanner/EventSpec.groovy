@@ -16,5 +16,6 @@ class EventSpec extends Specification {
     }
 
     void "test something"() {
+        assert  true
     }
 }
