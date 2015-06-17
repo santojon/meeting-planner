@@ -7,6 +7,7 @@ env:
   - GRAILS_VERSION=2.4.3
 
 before_install:
+- cd server/mplanner
 - rm -rf ~/.gvm
 - curl -s get.gvmtool.net > ~/install_gvm.sh
 - chmod 775 ~/install_gvm.sh
