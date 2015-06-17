@@ -40,8 +40,6 @@ before_install:
     - source ~/.gvm/bin/gvm-init.sh
     - gvm install grails $GRAILS_VERSION || true
 
-install: gradle clean build
-
 branches:
   only:
     - master
