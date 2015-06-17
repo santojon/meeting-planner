@@ -39,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BuildConfig.groovy" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BuildConfig.groovy" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1245">
-              <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.30250272" vertical-offset="97" max-vertical-offset="1245">
+              <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -115,10 +115,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserSpec.groovy" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserSpec.groovy" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/unit/com/mplanner/UserSpec.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2845982" vertical-offset="0" max-vertical-offset="896">
+            <state vertical-scroll-proportion="-11.086957" vertical-offset="0" max-vertical-offset="390">
               <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
               <folding />
             </state>
@@ -151,7 +151,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/grails-app/domain/com/mplanner/UserEvent.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" />
         <option value="$PROJECT_DIR$/grails-app/controllers/com/mplanner/MatchController.groovy" />
         <option value="$PROJECT_DIR$/grails-app/domain/com/mplanner/User.groovy" />
         <option value="$PROJECT_DIR$/grails-app/domain/com/mplanner/Event.groovy" />
@@ -161,6 +160,7 @@
         <option value="$PROJECT_DIR$/test/unit/com/mplanner/MatchControllerSpec.groovy" />
         <option value="$PROJECT_DIR$/test/unit/com/mplanner/MatchServiceSpec.groovy" />
         <option value="$PROJECT_DIR$/test/unit/com/mplanner/UserSpec.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" />
       </list>
     </option>
   </component>
@@ -532,12 +532,12 @@
       <created>1434482808413</created>
       <option name="number" value="Default" />
       <updated>1434482808413</updated>
-      <workItem from="1434482812206" duration="14026000" />
+      <workItem from="1434482812206" duration="14281000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14026000" />
+    <option name="totallyTimeSpent" value="14281000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1451" y="43" width="2531" height="1296" extended-state="6" />
@@ -652,14 +652,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1245">
-          <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/mplanner/MatchController.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-30.47826" vertical-offset="124" max-vertical-offset="1020">
@@ -744,8 +736,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/unit/com/mplanner/UserSpec.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2845982" vertical-offset="0" max-vertical-offset="896">
+        <state vertical-scroll-proportion="-11.086957" vertical-offset="0" max-vertical-offset="390">
           <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30250272" vertical-offset="97" max-vertical-offset="1245">
+          <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
           <folding />
         </state>
       </provider>
