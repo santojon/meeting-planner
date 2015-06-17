@@ -27,4 +27,4 @@ notifications:
  
 script:
   # Clean App, Test App and then Deploy App
-    - grails clean && grails test-app && grails prod run-war --stacktrace
+    - grails clean && grails test-app && grails prod war --stacktrace
