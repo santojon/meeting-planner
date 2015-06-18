@@ -59,3 +59,4 @@ script:
     - ./gradlew androidDependencies
     - ./gradlew clean
     - ./gradlew build
+    - ls
