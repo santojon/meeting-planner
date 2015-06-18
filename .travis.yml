@@ -1,19 +1,11 @@
-language: java
+language: android
 
-jdk:
-- oraclejdk8
-
-env:
-  global:
-    - ANDROID_SDK_VERSION="r22.6.2"
-    - GRAILS_VERSION=2.4.3
-    
 android:
   components:
     - platform-tools
     - tools
     - android-22
-    - build-tools-22.0.1
+    - build-tools-21.1.1
     - extra
   
     # Additional components
@@ -27,12 +19,27 @@ android:
     - sys-img-armeabi-v7a-android-19
     - sys-img-x86-android-17
 
+jdk:
+    - oraclejdk8
+
+os:
+    - linux
+
+env:
+  global:
+    - GRAILS_VERSION=2.4.3
+
+notifications:
+  email: true
+ 
+ branches:
+  only:
+    - master
+
 before_install:
     #ANDROID
     - cd MeetingPlanner
     - sudo apt-get update -qq
-    - if [ `uname -m` = x86_64 ]; then sudo apt-get update; fi
-    - if [ `uname -m` = x86_64 ]; then sudo apt-get install -qq --force-yes libgd2-xpm ia32-libs ia32-libs-multiarch; fi
     - chmod +x gradlew
     #GRAILS
     - cd ../server/mplanner
@@ -44,13 +51,6 @@ before_install:
     - source ~/.gvm/bin/gvm-init.sh
     - gvm install grails $GRAILS_VERSION || true
 
-branches:
-  only:
-    - master
-
-notifications:
-  email: true
- 
 script:
     - grails clean && grails test-app && grails prod war --stacktrace
     - cd ../../MeetingPlanner
@@ -59,4 +59,4 @@ script:
     - ./gradlew androidDependencies
     - ./gradlew clean
     - ./gradlew build
-    - ls
+    - ./gradlew assembleDebug
