@@ -1,15 +1,32 @@
-language: groovy
+language: java
 
 jdk:
 - oraclejdk8
 
 env:
   global:
+    - ANDROID_SDK_VERSION="r22.6.2"
     - GRAILS_VERSION=2.4.3
 
 before_install:
-    # Install Grails in GVM (Grails Virtual Machine)
-    - cd server/mplanner
+    #ANDROID
+    - cd MeetingPlanner
+    - sudo apt-get update -qq
+    - if [ `uname -m` = x86_64 ]; then sudo apt-get update; fi
+    - if [ `uname -m` = x86_64 ]; then sudo apt-get install -qq --force-yes libgd2-xpm ia32-libs ia32-libs-multiarch; fi
+    - wget http://dl.google.com/android/android-sdk_${ANDROID_SDK_VERSION}-linux.tgz
+    - tar -zxf android-sdk_${ANDROID_SDK_VERSION}-linux.tgz
+    - export ANDROID_HOME=`pwd`/android-sdk-linux
+    - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+    - echo "sdk.dir=$ANDROID_HOME" > local.properties
+    - echo yes | android update sdk --filter platform-tools --no-ui --force > /dev/null
+    - echo yes | android update sdk --all --filter build-tools-19.0.3 --no-ui --force > /dev/null
+    - echo yes | android update sdk --filter android-19 --no-ui --force > /dev/null
+    - echo yes | android update sdk --filter extra-android-support --no-ui --force > /dev/null
+    - echo yes | android update sdk --filter extra-android-m2repository --no-ui --force > /dev/null
+    - echo yes | android update sdk --filter extra-google-m2repository --no-ui --force > /dev/null
+    #GRAILS
+    - cd ../server/mplanner
     - rm -rf ~/.gvm
     - curl -s get.gvmtool.net > ~/install_gvm.sh
     - chmod 775 ~/install_gvm.sh
@@ -26,5 +43,6 @@ notifications:
   email: true
  
 script:
-  # Clean App, Test App and then Deploy App
+    - ls
+    - ./gradlew tasks
     - grails clean && grails test-app && grails prod war --stacktrace
