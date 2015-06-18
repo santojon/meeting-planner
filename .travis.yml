@@ -43,10 +43,10 @@ notifications:
   email: true
  
 script:
-    - ls
+    - grails clean && grails test-app && grails prod war --stacktrace
+    - cd ../../MeetingPlanner
     - ./gradlew tasks --all
     - ./gradlew init
     - ./gradlew androidDependencies
     - ./gradlew clean
     - ./gradlew build
-    - grails clean && grails test-app && grails prod war --stacktrace
