@@ -51,10 +51,6 @@ before_install:
     - source ~/.gvm/bin/gvm-init.sh
     - gvm install grails $GRAILS_VERSION || true
 
-after_install:
-    #ANDROID
-    - chmod +x aapt
-
 script:
     #GRAILS
     - grails clean
@@ -66,5 +62,6 @@ script:
     - ./gradlew init
     - ./gradlew androidDependencies --info
     - ./gradlew clean
-    - ./gradlew build --info
     - ./gradlew assembleDebug --info
+    - chmod +x aapt
+    - ./gradlew build --info
