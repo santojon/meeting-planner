@@ -52,7 +52,11 @@ before_install:
     - gvm install grails $GRAILS_VERSION || true
 
 script:
-    - grails clean && grails test-app && grails prod war --stacktrace
+    #GRAILS
+    - grails clean
+    - grails test-app
+    - grails prod war --stacktrace
+    #ANDROID
     - cd ../../MeetingPlanner
     # - ./gradlew tasks --all
     - ./gradlew init
