@@ -54,13 +54,13 @@ before_install:
 script:
     #GRAILS
     - grails clean
-    - grails test-app
+    - grails test-app --stacktrace
     - grails prod war --stacktrace
     #ANDROID
     - cd ../../MeetingPlanner
     # - ./gradlew tasks --all
     - ./gradlew init
-    - ./gradlew androidDependencies
+    - ./gradlew androidDependencies --info
     - ./gradlew clean
-    - ./gradlew build
+    - ./gradlew build --info
     - ./gradlew assembleDebug --info
