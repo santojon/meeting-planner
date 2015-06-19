@@ -6,8 +6,6 @@ class User {
     String username
     String email
 
-    static hasMany = [events: Event]
-
     static constraints = {
         name(nullable: false)
         username(nullable: false, unique: true)
@@ -15,6 +13,6 @@ class User {
     }
 
     boolean isInvited(Event e) {
-        return (this in e.invited)
+        return email in e.invited
     }
 }

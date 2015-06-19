@@ -1,10 +1,11 @@
 package com.mplanner
 
-class Event {
+class EventAttempt {
 
     String eventTitle
     Date startDate
     Date endDate
+    User creator
 
     static belongsTo = [creator: User]
     static hasMany = [invited: String]
@@ -12,7 +13,11 @@ class Event {
     static constraints = {
         creator(nullable: false)
         eventTitle(nullable: false)
-        startDate(nullable: false, unique: ['creator'])
-        endDate(nullable: false, unique: ['creator'])
+        startDate(nullable: false)
+        endDate(nullable: false)
+    }
+
+    Event toEvent() {
+        return this as Event
     }
 }
