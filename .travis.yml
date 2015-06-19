@@ -1,13 +1,10 @@
 language: java
-
 jdk:
   - oraclejdk8
-
 env:
   global:
     - ANDROID_SDK_VERSION="r21.1.2"
     - GRAILS_VERSION=2.4.3
-
 before_install:
     #ANDROID
     - cd MeetingPlanner
@@ -35,16 +32,13 @@ before_install:
     - echo "gvm_auto_answer=true" > ~/.gvm/etc/config
     - source ~/.gvm/bin/gvm-init.sh
     - gvm install grails $GRAILS_VERSION || true
-
 notifications:
   email: true
- 
- branches:
+branches:
   only:
     - master
-
 script:
-    #- grails clean && grails test-app && grails prod war --stacktrace
+    - grails clean && grails test-app && grails prod war --stacktrace
     - cd ../../MeetingPlanner
     - ./gradlew tasks --all
     - ./gradlew init
