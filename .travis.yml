@@ -63,5 +63,4 @@ script:
     - ./gradlew androidDependencies --info
     - ./gradlew clean
     - ./gradlew assembleDebug --info
-    - chmod +x aapt
     - ./gradlew build --info
