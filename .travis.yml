@@ -1,5 +1,8 @@
 language: android
 
+# os:
+#   - linux
+
 android:
   components:
     - platform-tools-21
@@ -22,17 +25,14 @@ android:
 jdk:
     - oraclejdk8
 
-#os:
-#    - linux
-
 env:
   global:
     - GRAILS_VERSION=2.4.3
 
 notifications:
   email: true
- 
- branches:
+
+branches:
   only:
     - master
 
@@ -54,9 +54,9 @@ before_install:
 script:
     - grails clean && grails test-app && grails prod war --stacktrace
     - cd ../../MeetingPlanner
-    - ./gradlew tasks --all
+    # - ./gradlew tasks --all
     - ./gradlew init
     - ./gradlew androidDependencies
     - ./gradlew clean
     - ./gradlew build
-    - ./gradlew assembleDebug
+    - ./gradlew assembleDebug --info
