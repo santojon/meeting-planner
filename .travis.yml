@@ -54,9 +54,9 @@ before_install:
 script:
     - grails clean && grails test-app && grails prod war --stacktrace
     - cd ../../MeetingPlanner
-    - ./gradlew tasks --all
+    # - ./gradlew tasks --all
     - ./gradlew init
     - ./gradlew androidDependencies
     - ./gradlew clean
     - ./gradlew build
-    - ./gradlew assembleDebug
+    - ./gradlew assembleDebug --info
