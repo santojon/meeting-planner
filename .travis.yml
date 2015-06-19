@@ -1,48 +1,15 @@
-language: android
-
-# os:
-#   - linux
-
-android:
-  components:
-    - platform-tools-21
-    - tools-21
-    - android-21
-    - build-tools-21.1.2
-    - extra-21
-  
-    # Additional components
-    - extra-google-google_play_services
-    - extra-google-m2repository
-    - extra-android-m2repository
-    - addon-google_apis-google-21
-
-    # Specify at least one system image,
-    # if you need to run emulator(s) during your tests
-    - sys-img-armeabi-v7a-android-21
-    # - sys-img-x86-android-17
+language: groovy
 
 jdk:
-    - oraclejdk8
+- oraclejdk8
 
 env:
   global:
     - GRAILS_VERSION=2.4.3
 
-notifications:
-  email: true
- 
- branches:
-  only:
-    - master
-
 before_install:
-    #ANDROID
-    - cd MeetingPlanner
-    - sudo apt-get update -qq
-    - chmod +x gradlew
-    #GRAILS
-    - cd ../server/mplanner
+    # Install Grails in GVM (Grails Virtual Machine)
+    - cd server/mplanner
     - rm -rf ~/.gvm
     - curl -s get.gvmtool.net > ~/install_gvm.sh
     - chmod 775 ~/install_gvm.sh
@@ -51,12 +18,13 @@ before_install:
     - source ~/.gvm/bin/gvm-init.sh
     - gvm install grails $GRAILS_VERSION || true
 
+branches:
+  only:
+    - master
+
+notifications:
+  email: true
+ 
 script:
+  # Clean App, Test App and then Deploy App
     - grails clean && grails test-app && grails prod war --stacktrace
-    - cd ../../MeetingPlanner
-    - ./gradlew tasks --all
-    - ./gradlew init
-    - ./gradlew androidDependencies
-    - ./gradlew clean
-    - ./gradlew build
-    - ./gradlew assembleDebug
