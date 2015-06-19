@@ -1,5 +1,15 @@
 language: android
 
+jdk:
+    - oraclejdk8
+
+#os:
+#    - linux
+
+env:
+  global:
+    - GRAILS_VERSION=2.4.3
+
 android:
   components:
     - platform-tools
@@ -18,16 +28,6 @@ android:
     # if you need to run emulator(s) during your tests
     - sys-img-armeabi-v7a-android-19
     - sys-img-x86-android-17
-
-jdk:
-    - oraclejdk8
-
-os:
-    - linux
-
-env:
-  global:
-    - GRAILS_VERSION=2.4.3
 
 notifications:
   email: true
