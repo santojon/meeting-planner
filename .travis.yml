@@ -5,13 +5,11 @@ language: android
 
 android:
   components:
-    - platform-tools
-    - tools
-    - android
-    - build-tools-21.1.1
+    - platform-tools-21
+    - tools-21
+    - android-21
     - build-tools-21.1.2
-    - build-tools-22.0.1
-    - extra
+    - extra-21
   
     # Additional components
     - extra-google-google_play_services
@@ -65,4 +63,4 @@ script:
     - ./gradlew androidDependencies --info
     - ./gradlew clean
     - ./gradlew assembleDebug --info
-    - ./gradlew build --info
+    # - ./gradlew build --info
